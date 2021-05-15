@@ -449,6 +449,9 @@ def loadFromMod(modPath, brPath, name, entRoot, fixIconFormat=False):
         editorImgPath = en.get("EditorImage") and linuxPathSensitivityTraining(
             os.path.join(brPath, en.get("EditorImage"))
         )
+        overlayImgPath = en.get("OverlayImage") and linuxPathSensitivityTraining(
+            os.path.join(brPath, en.get("OverlayImage"))
+        )
 
         gfx = en.find("Gfx")
         if gfx is not None:
@@ -510,6 +513,7 @@ def loadFromMod(modPath, brPath, name, entRoot, fixIconFormat=False):
             en.set("Group", "(Mod) %s" % name)
         en.set("Image", imgPath)
         en.set("EditorImage", editorImgPath)
+        en.set("OverlayImage", overlayImgPath)
 
         if fixIconFormat:
             formatFix = QImage(imgPath)
@@ -1251,6 +1255,7 @@ class Entity(QGraphicsItem):
             self.blocksDoor = True
 
             self.imgPath = None
+            self.overlayImgPath = None
             self.gfx = None
             self.renderPit = None
             self.renderRock = None
@@ -1258,6 +1263,7 @@ class Entity(QGraphicsItem):
 
             self.pixmap = None
             self.iconpixmap = None
+            self.overlaypixmap = None
 
             self.mirrorX = None
             self.mirrorY = None
@@ -1296,7 +1302,9 @@ class Entity(QGraphicsItem):
             self.gfx = en.find("Gfx")
 
             self.imgPath = en.get("EditorImage") or en.get("Image")
-
+            
+            self.overlayImgPath = en.get("OverlayImage")
+            
             self.renderPit = en.get("UsePitTiling") == "1"
             self.renderRock = en.get("UseRockTiling") == "1"
             self.rockFrame = None
@@ -1339,6 +1347,10 @@ class Entity(QGraphicsItem):
                     self.placeVisual = (float(parts[0]), float(parts[1]))
                 else:
                     self.placeVisual = parts[0]
+            
+            if self.overlayImgPath:
+                self.overlaypixmap = QPixmap(self.overlayImgPath)
+                print(self.overlayImgPath)
 
             self.invalid = en.get("Invalid") == "1"
             self.known = True
@@ -1846,6 +1858,9 @@ class Entity(QGraphicsItem):
                 # Grid space boundary
                 painter.setPen(Qt.green)
                 drawGridBorders()
+                
+            if self.entity.overlaypixmap:
+                painter.drawPixmap(0, 0, self.entity.overlaypixmap)
 
         if not self.entity.known:
             painter.setFont(QFont("Arial", 6))
