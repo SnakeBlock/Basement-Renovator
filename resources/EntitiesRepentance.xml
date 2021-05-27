@@ -965,6 +965,7 @@
 	<entity Group="Events" ID="4500" Image="resources/Entities/4500.13.0 - Event Plate (group 3).png" Kind="Stage" Name="Event Plate (group 3)" Subtype="0" Variant="13" IsGrid="1" />
 	
 	<!-- Rails -->
+	<entity Group="Rails" ID="6000" Subtype="-1" Variant="-1" Image="resources/Entities/6000.-1.-1 - Rail Maker.png" Kind="Stage" Name="Rail Maker" IsTiler="1" />
 	<entity Group="Rails" ID="6000" Image="resources/Entities/6000.0.0 - Rail (left-to-right).png" Kind="Stage" Name="Rail (left-to-right)" Subtype="0" Variant="0" IsGrid="1" />
 	<entity Group="Rails" ID="6000" Image="resources/Entities/6000.1.0 - Rail (up-to-down).png" Kind="Stage" Name="Rail (up-to-down)" Subtype="0" Variant="1" IsGrid="1" />
 	<entity Group="Rails" ID="6000" Image="resources/Entities/6000.2.0 - Rail (up-to-right).png" Kind="Stage" Name="Rail (up-to-right)" Subtype="0" Variant="2" IsGrid="1" MirrorX="6000.3.0" MirrorY="6000.4.0" />
@@ -1079,6 +1080,7 @@
 	<entity Group="Poop" ID="1497" Image="resources/Entities/1497.0.0 - Black Poop.png" Kind="Stage" Name="Black Poop" Subtype="0" Variant="0" InEmptyRooms="1" IsGrid="1" />
 	<entity Group="Poop" ID="1498" Image="resources/Entities/1498.0.0 - Holy Poop.png" Kind="Stage" Name="Holy Poop" Subtype="0" Variant="0" InEmptyRooms="1" IsGrid="1" />
 	<entity Group="Poop" ID="1499" Image="resources/Entities/1499.0.0 - Giant Poop.png" Kind="Stage" Name="Giant Poop" Subtype="0" Variant="0" InEmptyRooms="1" IsGrid="1" />
+	<entity Group="Poop" ID="1501" Image="resources/Entities/1501.0.0 - Charming Poop.png" Kind="Stage" Name="Charming Poop" Subtype="0" Variant="0" InEmptyRooms="1" IsGrid="1" />
 
 	<!-- Props -->
 	<entity Group="Props" ID="0" Image="resources/Entities/0.10.0 - Random Props A.png" Kind="Stage" Name="Random Props A" Subtype="0" Variant="10" InEmptyRooms="1" NoBlockDoors="1" IsGrid="1" />
